@@ -17,6 +17,7 @@ export const useUniversities = () =>
 export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const [loading, setLoading] = useState(false);
   const [universities, setUniversities] = useState<IUniversity[]>([]);
 
   const deleteUniversity = (name: string) => {
@@ -27,6 +28,7 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const { data } = await axios.get(GET_UNIVERSITIES_URL);
         setUniversities(
@@ -47,6 +49,8 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
         } else {
           console.error("Failed to fetch and no cache available.");
         }
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -56,6 +60,7 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
   const value: TUniversityContext = {
     universities,
     deleteUniversity,
+    loading,
   };
 
   return (

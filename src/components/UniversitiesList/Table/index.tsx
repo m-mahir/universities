@@ -24,10 +24,13 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
   useEffect(() => setTableData(data), [data]);
 
   return (
+    <div className="table-container">
+
     <table className="table">
       <TableHead columns={columns} handleSorting={handleSorting} />
       <TableBody columns={columns} tableData={tableData} />
     </table>
+    </div>
   );
 };
 
