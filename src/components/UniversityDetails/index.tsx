@@ -11,30 +11,24 @@ const UniversityDetails: FC<IProps> = (props) => {
   const { university } = props;
 
   return (
-    <>
-      <h2>{university?.name}</h2>
-      <div className="field-group">
-        <div>
-          <div>
-            <b>State/Province:</b> {university?.stateProvince ?? "--"}
-          </div>
-          <div>
-            <b>Country:</b> {university?.country}
-          </div>
-          <div>
-            <b>Code:</b> {university?.alphaTwoCode}
-          </div>
-        </div>
-        <div>
-          <div>
-            <b>Domains:</b> {university?.domains}
-          </div>
-          <div>
-            <b>Web Pages:</b> {university?.webPages}
-          </div>
-        </div>
+    <div className="university-card">
+      <div className="header">
+        <h1 className="university-name">{university?.name}</h1>
+        <p className="university-country">
+          {university?.country} ({university?.alphaTwoCode})
+        </p>
       </div>
-    </>
+      <div className="content">
+        {university?.domains.map((domain, index) => (
+          <div key={domain} className="domain-row">
+            <div className="university-domain">{domain}</div>
+            <a href={university?.webPages[index]} className="university-link">
+              {university?.webPages[index]}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

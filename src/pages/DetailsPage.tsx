@@ -1,7 +1,8 @@
-import { useUniversities } from "../contexts/UniversitiesContext";
 import { useParams } from "react-router-dom";
-import { IUniversity } from "../types/university";
 import UniversityDetails from "../components/UniversityDetails";
+import UniversityDetailsHeader from "../components/UniversityDetails/Header";
+import { useUniversities } from "../contexts/UniversitiesContext";
+import { IUniversity } from "../types/university";
 
 const DetailsPage = () => {
   const { universities } = useUniversities();
@@ -11,8 +12,8 @@ const DetailsPage = () => {
   );
 
   return (
-    <div>
-      <h1>University Details</h1>
+    <div className="header">
+      <UniversityDetailsHeader />
       <UniversityDetails university={university} />
     </div>
   );

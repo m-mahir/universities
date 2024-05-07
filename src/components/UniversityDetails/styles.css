@@ -1,9 +1,58 @@
-.field-group {
-  margin-bottom: 0.5rem;
+.university-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
-.field-group div {
+.header {
+  font-size: 1.5rem;
+}
+
+.header a {
+  background: #d3f4ff;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.university-name {
+  color: #333;
+  font-size: 24px;
+}
+
+.university-country {
+  color: #555;
+  font-size: 18px;
+}
+
+.content {
+  margin-top: 10px;
+}
+
+.domain-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.university-domain {
+  background-color: #eef;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.university-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.university-link:hover {
+  text-decoration: underline;
 }
