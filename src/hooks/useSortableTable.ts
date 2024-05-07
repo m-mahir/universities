@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
-
 type TableData<T> = T[];
 type Indexable = { [key: string]: string | string[] };
 
 export const useSortableTable = <T extends Indexable>(data: TableData<T>) => {
-  const [tableData, setTableData] = useState<TableData<T>>(data);
-
-  useEffect(() => setTableData(data), [data]);
-
   const handleSorting = (sortField: string, sortOrder: "asc" | "desc") => {
     if (sortField) {
-      const sorted = [...tableData].sort((a, b) => {
+      const sorted = [...data].sort((a, b) => {
         if (a[sortField] === null) return sortOrder === "asc" ? 1 : -1;
         if (b[sortField] === null) return sortOrder === "asc" ? -1 : 1;
         if (a[sortField] === null && b[sortField] === null) return 0;
@@ -20,9 +14,9 @@ export const useSortableTable = <T extends Indexable>(data: TableData<T>) => {
           }) * (sortOrder === "asc" ? 1 : -1)
         );
       });
-      setTableData(sorted);
+      return sorted;
     }
   };
 
-  return { tableData, handleSorting };
+  return { handleSorting };
 };

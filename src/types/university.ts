@@ -19,6 +19,7 @@ export interface UniversityResponseItem {
 
 export type TUniversityContext = {
   universities: IUniversity[];
+  setUniversities: (universities: IUniversity[]) => void;
   deleteUniversity: (name: string) => void;
   loading: boolean;
 };

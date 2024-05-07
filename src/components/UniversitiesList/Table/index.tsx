@@ -1,3 +1,4 @@
+import { useUniversities } from "../../../contexts/UniversitiesContext";
 import { useSortableTable } from "../../../hooks/useSortableTable";
 import { IUniversity } from "../../../types/university";
 import TableBody from "./TableBody";
@@ -17,13 +18,21 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ data, columns }) => {
-  const { handleSorting, tableData } = useSortableTable<IUniversity>(data);
+  const { universities, setUniversities } = useUniversities();
+  const { handleSorting } = useSortableTable<IUniversity>(universities);
+
+  const sortUniversities = (accessor: string, sortOrder: "asc" | "desc") => {
+    const sortedUniversities = handleSorting(accessor, sortOrder);
+    if (sortedUniversities) {
+      setUniversities(sortedUniversities);
+    }
+  };
 
   return (
     <div className="table-container">
       <table className="table">
-        <TableHead columns={columns} handleSorting={handleSorting} />
-        <TableBody columns={columns} tableData={tableData} />
+        <TableHead columns={columns} handleSorting={sortUniversities} />
+        <TableBody columns={columns} tableData={data} />
       </table>
     </div>
   );

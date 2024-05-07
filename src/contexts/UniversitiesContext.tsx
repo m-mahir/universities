@@ -59,6 +59,7 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const value: TUniversityContext = {
     universities,
+    setUniversities,
     deleteUniversity,
     loading,
   };
