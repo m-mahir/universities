@@ -1,7 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { IUniversity, TUniversityContext } from "../types/unversity";
-import { GET_UNIVERSITIES_URL } from "../constants/contants";
+import {
+  IUniversity,
+  TUniversityContext,
+  UniversityResponseItem,
+} from "../types/university";
+import { GET_UNIVERSITIES_URL } from "../constants";
 
 export const UniversitiesContext = createContext<TUniversityContext | null>(
   null
@@ -20,7 +24,7 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
       try {
         const { data } = await axios.get(GET_UNIVERSITIES_URL);
         setUniversities(
-          data.map((item: any) => ({
+          data.map((item: UniversityResponseItem) => ({
             stateProvince: item["state-province"],
             domains: item.domains,
             webPages: item.web_pages,

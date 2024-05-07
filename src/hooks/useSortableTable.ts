@@ -3,10 +3,7 @@ import { useState } from "react";
 type TableData<T> = T[];
 type Indexable = { [key: string]: string | string[] };
 
-export const useSortableTable = <T extends Indexable>(
-  data: TableData<T>,
-  setUniversities: (universities: TableData<T>) => void
-) => {
+export const useSortableTable = <T extends Indexable>(data: TableData<T>) => {
   const [tableData, setTableData] = useState<TableData<T>>(data);
 
   const handleSorting = (sortField: string, sortOrder: "asc" | "desc") => {
@@ -22,7 +19,6 @@ export const useSortableTable = <T extends Indexable>(
         );
       });
       setTableData(sorted);
-      setUniversities(sorted);
     }
   };
 

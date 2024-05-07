@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IUniversity } from "../types/unversity";
+import { IUniversity } from "../../types/university";
 import { Link } from "react-router-dom";
 
 interface IProps {

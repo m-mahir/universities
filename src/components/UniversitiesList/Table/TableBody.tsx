@@ -1,6 +1,6 @@
 import React from "react";
-import { IUniversity } from "../types/unversity";
 import { Link } from "react-router-dom";
+import { IUniversity } from "../../../types/university";
 
 type Column = {
   accessor: string;

@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { IUniversity } from "../types/unversity";
+import { IUniversity } from "../../types/university";
 
-import "./UniversityDetails.css";
+import "./styles.css";
 
 interface IProps {
   university?: IUniversity;
@@ -30,7 +30,7 @@ const UniversityDetails: FC<IProps> = (props) => {
             <b>Domains:</b> {university?.domains}
           </div>
           <div>
-            <b>webPages:</b> {university?.webPages}
+            <b>Web Pages:</b> {university?.webPages}
           </div>
         </div>
       </div>
