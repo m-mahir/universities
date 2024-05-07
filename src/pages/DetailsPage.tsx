@@ -5,14 +5,14 @@ import { IUniversity } from "../types/unversity";
 const DetailsPage = () => {
   const { universities } = useUniversities();
   const { id } = useParams();
-  const item = universities.find(
+  const university = universities.find(
     (university: IUniversity) => university.name === id
   );
 
   return (
     <div>
       <h1>University Details</h1>
-      <div>Name: {item?.name}</div>
+      <div>Name: {university?.name}</div>
     </div>
   );
 };

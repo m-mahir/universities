@@ -1,17 +1,20 @@
 import { FC } from "react";
 import { IUniversity } from "../types/unversity";
+import { Link } from "react-router-dom";
 
 interface IProps {
-  items: IUniversity[];
+  universities: IUniversity[];
 }
 
 const UniversitiesList: FC<IProps> = (props) => {
-  const { items } = props;
+  const { universities } = props;
 
   return (
     <>
-      {items.map((item) => (
-        <div>{item.name}</div>
+      {universities.map((university) => (
+        <div>
+          <Link to={`/details/${university.name}`}>{university.name}</Link>
+        </div>
       ))}
     </>
   );
