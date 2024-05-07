@@ -12,10 +12,10 @@ const DetailsPage = () => {
   );
 
   return (
-    <div className="header">
+    <>
       <UniversityDetailsHeader />
       <UniversityDetails university={university} />
-    </div>
+    </>
   );
 };
 

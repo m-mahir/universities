@@ -12,14 +12,14 @@
   }
 }
 
-.table-container {
-  width: 100%;
-}
-
 .table-container .table {
   margin: 0 auto;
   text-align: left;
   border-spacing: 0;
+}
+
+.table-container .table tr a {
+  display: contents;
 }
 
 .table-container .table tbody td span {
