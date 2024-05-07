@@ -1,6 +1,6 @@
 import { FC, useMemo, useState } from "react";
 import { IUniversity } from "../../types/university";
-import Table from "./Table/Table";
+import Table from "./Table";
 
 import SearchBar from "./SearchBar";
 import "./styles.css";

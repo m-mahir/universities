@@ -46,6 +46,7 @@ const TableHead: React.FC<TableHeadProps> = ({ columns, handleSorting }) => {
             </th>
           );
         })}
+        <th></th>
       </tr>
     </thead>
   );

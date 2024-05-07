@@ -19,6 +19,12 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [universities, setUniversities] = useState<IUniversity[]>([]);
 
+  const deleteUniversity = (name: string) => {
+    setUniversities((prevUniversities) =>
+      prevUniversities.filter((university) => university.name !== name)
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,7 +55,7 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const value: TUniversityContext = {
     universities,
-    setUniversities,
+    deleteUniversity,
   };
 
   return (

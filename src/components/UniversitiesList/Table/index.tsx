@@ -4,6 +4,8 @@ import { IUniversity } from "../../../types/university";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
+import "./styles.css";
+
 type Column = {
   label: string;
   accessor: string;

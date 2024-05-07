@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { IUniversity } from "../../../types/university";
+import TableRow from "./TableRow";
 
 type Column = {
   accessor: string;
@@ -15,16 +15,7 @@ const TableBody: React.FC<TableBodyProps> = ({ tableData, columns }) => {
   return (
     <tbody>
       {tableData.map((data) => (
-        <tr key={data.name}>
-          {columns.map(({ accessor }) => {
-            const tData = data[accessor as keyof IUniversity] ?? "——";
-            return (
-              <td key={accessor}>
-                <Link to={`/details/${data.name}`}>{tData}</Link>
-              </td>
-            );
-          })}
-        </tr>
+        <TableRow key={data.name} rowData={data} columns={columns} />
       ))}
     </tbody>
   );
