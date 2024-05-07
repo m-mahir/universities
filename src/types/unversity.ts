@@ -1,6 +1,7 @@
 export interface IUniversity {
+  [key: string]: string | string[];
   name: string;
-  state: boolean;
+  stateProvince: string;
   domains: string[];
   webPages: string[];
   alphaTwoCode: string;

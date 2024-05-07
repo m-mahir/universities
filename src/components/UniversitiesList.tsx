@@ -1,22 +1,28 @@
 import { FC } from "react";
 import { IUniversity } from "../types/unversity";
-import { Link } from "react-router-dom";
+
+import "./UniversityList.css";
+import Table from "./Table";
 
 interface IProps {
   universities: IUniversity[];
+  setUniversities: (universities: IUniversity[]) => void;
 }
 
 const UniversitiesList: FC<IProps> = (props) => {
-  const { universities } = props;
+  const { universities, setUniversities } = props;
+
+  const columns = [
+    { label: "Name", accessor: "name", sortable: true },
+    { label: "State", accessor: "stateProvince", sortable: true },
+  ];
 
   return (
-    <>
-      {universities.map((university) => (
-        <div>
-          <Link to={`/details/${university.name}`}>{university.name}</Link>
-        </div>
-      ))}
-    </>
+    <Table
+      data={universities}
+      columns={columns}
+      setUniversities={setUniversities}
+    />
   );
 };
 
