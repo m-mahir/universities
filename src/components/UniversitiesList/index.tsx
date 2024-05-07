@@ -21,9 +21,11 @@ const UniversitiesList: FC<IProps> = (props) => {
   const filteredUniversities = useMemo(
     () =>
       universities.filter((university) =>
-        university.name
-          .toLocaleLowerCase()
-          .includes(searchKey.toLocaleLowerCase())
+        columns.some((column) =>
+          ((university[column.accessor] as string) ?? "")
+            .toLocaleLowerCase()
+            .includes(searchKey.toLocaleLowerCase())
+        )
       ),
     [universities, searchKey]
   );
