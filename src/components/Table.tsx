@@ -19,7 +19,6 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ data, columns, setUniversities }) => {
   const { handleSorting, setTableData } = useSortableTable<IUniversity>(
     data,
-    // columns,
     setUniversities
   );
 
