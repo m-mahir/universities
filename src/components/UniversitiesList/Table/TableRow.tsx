@@ -25,12 +25,16 @@ export default function TableRow({ rowData, columns }: TableRowProps) {
 
   return (
     <tr className={deleted ? "deleted" : ""}>
-      <Link to={`/details/${rowData.name}`}>
-        {columns.map(({ accessor }) => {
-          const tData = rowData[accessor as keyof IUniversity];
-          return <td key={accessor}>{tData}</td>;
-        })}
-      </Link>
+      {columns.map(({ accessor }) => {
+        const tData = rowData[accessor as keyof IUniversity];
+        return (
+          <td key={accessor}>
+            <Link to={`/details/${rowData.name}`}>
+              <div>{tData}</div>
+            </Link>
+          </td>
+        );
+      })}
       <td>
         <button className="delete-btn" onClick={handleDelete}>
           Delete
