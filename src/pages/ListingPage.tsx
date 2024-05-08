@@ -6,7 +6,7 @@ const ListingPage = () => {
 
   return (
     <div>
-      <h1>Universities List</h1>
+      <h2>Universities List</h2>
       <UniversitiesList universities={universities} />
     </div>
   );

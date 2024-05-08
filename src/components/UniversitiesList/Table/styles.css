@@ -20,13 +20,17 @@
   border-spacing: 0;
 }
 .table-container .table thead tr th {
-  font-size: 18px;
+  font-size: 1rem;
   background-color: #083a5a;
   position: sticky;
   top: 0;
   border-bottom: 3px solid grey;
   cursor: pointer;
   z-index: 1;
+}
+
+.table-container .table tr td {
+  font-size: 0.9rem;
 }
 
 .table-container .table tr td:first-child {
