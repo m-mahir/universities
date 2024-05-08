@@ -17,6 +17,14 @@
   text-align: left;
   border-spacing: 0;
 }
+.table-container .table thead tr th {
+  font-size: 18px;
+  border-bottom: 3px solid grey;
+}
+
+.table-container .table tr td:first-child {
+  font-weight: bold;
+}
 
 .table-container .table tr a {
   display: contents;

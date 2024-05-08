@@ -19,7 +19,7 @@ const TableBody: React.FC<TableBodyProps> = ({ tableData, columns }) => {
   return (
     <tbody>
       {isLoading ? (
-        <TableSkeleton colCount={columns.length + 1} rowsCount={10} />
+        <TableSkeleton colCount={columns.length + 1} rowsCount={15} />
       ) : (
         tableData.map((data) => (
           <TableRow key={data.name} rowData={data} columns={columns} />
