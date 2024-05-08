@@ -4,10 +4,16 @@ import TableSkeleton from "../../../../components/UniversitiesList/Table/TableSk
 
 describe("TableSkeleton", () => {
   it("renders a table skeleton with specified rows and columns", () => {
-    render(<TableSkeleton colCount={3} rowsCount={5} />);
+    render(
+      <table>
+        <tbody>
+          <TableSkeleton colCount={3} rowsCount={5} />
+        </tbody>
+      </table>
+    );
 
     const rows = screen.getAllByRole("row");
-    expect(rows).toHaveLength(5);
+    expect(rows).toHaveLength(5); 
 
     rows.forEach((row) => {
       const cells = within(row).getAllByRole("cell");

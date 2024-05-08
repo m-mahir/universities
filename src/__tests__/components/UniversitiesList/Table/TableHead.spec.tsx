@@ -11,7 +11,9 @@ describe("TableHead", () => {
 
   it("renders column headers and handles sorting", () => {
     render(
-      <TableHead columns={columnsMock} handleSorting={handleSortingMock} />
+      <table>
+        <TableHead columns={columnsMock} handleSorting={handleSortingMock} />
+      </table>
     );
 
     const nameHeader = screen.getByText("Name");
