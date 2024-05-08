@@ -3,7 +3,6 @@ import { IUniversity } from "../../types/university";
 import Table from "./Table";
 
 import SearchBar from "./SearchBar";
-import "./styles.css";
 
 interface IProps {
   universities: IUniversity[];
@@ -33,7 +32,11 @@ const UniversitiesList: FC<IProps> = (props) => {
   return (
     <>
       <SearchBar searchKey={searchKey} setSearchKey={setSearchKey} />
-      <Table data={filteredUniversities} columns={columns} />
+      {searchKey && !filteredUniversities.length ? (
+        <h4 className="no-data">No Result Found</h4>
+      ) : (
+        <Table data={filteredUniversities} columns={columns} />
+      )}
     </>
   );
 };

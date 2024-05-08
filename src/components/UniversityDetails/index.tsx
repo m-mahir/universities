@@ -11,7 +11,7 @@ const UniversityDetails: FC<IProps> = (props) => {
   const { university } = props;
 
   return (
-    <div className="university-card">
+    <div className="card">
       <div className="header">
         <h1 className="university-name">{university?.name}</h1>
         <p className="university-country">
