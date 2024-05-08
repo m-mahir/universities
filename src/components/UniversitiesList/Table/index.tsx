@@ -1,5 +1,5 @@
 import { useUniversities } from "../../../contexts/UniversitiesContext";
-import { useSortableTable } from "../../../hooks/useSortableTable";
+import { useSortableTable } from "../../../core/hooks/useSortableTable";
 import { IUniversity } from "../../../types/university";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";

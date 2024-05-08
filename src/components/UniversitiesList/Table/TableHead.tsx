@@ -23,24 +23,30 @@ const TableHead: React.FC<TableHeadProps> = ({ columns, handleSorting }) => {
     handleSorting(accessor, sortOrder);
   };
 
+  const getArrowClass = (accessor: string, sortable: boolean) => {
+    if (sortable) {
+      if (sortField === accessor && order === "asc") {
+        return "up";
+      } else if (sortField === accessor && order === "desc") {
+        return "down";
+      }
+      return "default";
+    }
+    return "";
+  };
+
   return (
     <thead>
       <tr>
         {columns.map(({ label, accessor, sortable }) => {
-          const cl = sortable
-            ? sortField === accessor && order === "asc"
-              ? "up"
-              : sortField === accessor && order === "desc"
-              ? "down"
-              : "default"
-            : "";
+          const arrowClass = getArrowClass(accessor, sortable);
           return (
             <th
               key={accessor}
               onClick={
                 sortable ? () => handleSortingChange(accessor) : undefined
               }
-              className={cl}
+              className={arrowClass}
             >
               {label}
             </th>

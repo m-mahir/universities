@@ -14,11 +14,11 @@ interface TableBodyProps {
 }
 
 const TableBody: React.FC<TableBodyProps> = ({ tableData, columns }) => {
-  const { loading } = useUniversities();
+  const { isLoading } = useUniversities();
 
   return (
     <tbody>
-      {loading ? (
+      {isLoading ? (
         <TableSkeleton colCount={columns.length + 1} rowsCount={10} />
       ) : (
         tableData.map((data) => (
