@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useUniversities } from "../../../contexts/UniversitiesContext";
 import { IUniversity } from "../../../types/university";
 
 type Column = {
@@ -10,11 +9,15 @@ type Column = {
 interface TableRowProps {
   rowData: IUniversity;
   columns: Column[];
+  deleteUniversity: (name: string) => void;
 }
 
-export default function TableRow({ rowData, columns }: TableRowProps) {
+export default function TableRow({
+  rowData,
+  columns,
+  deleteUniversity,
+}: TableRowProps) {
   const [deleted, setDeleted] = useState(false);
-  const { deleteUniversity } = useUniversities();
 
   const handleDelete = () => {
     setDeleted(true);

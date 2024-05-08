@@ -14,7 +14,7 @@ interface TableBodyProps {
 }
 
 const TableBody: React.FC<TableBodyProps> = ({ tableData, columns }) => {
-  const { isLoading } = useUniversities();
+  const { isLoading, deleteUniversity } = useUniversities();
 
   return (
     <tbody>
@@ -22,7 +22,12 @@ const TableBody: React.FC<TableBodyProps> = ({ tableData, columns }) => {
         <TableSkeleton colCount={columns.length + 1} rowsCount={15} />
       ) : (
         tableData.map((data) => (
-          <TableRow key={data.name} rowData={data} columns={columns} />
+          <TableRow
+            key={data.name}
+            rowData={data}
+            columns={columns}
+            deleteUniversity={deleteUniversity}
+          />
         ))
       )}
     </tbody>
