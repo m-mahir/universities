@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { IUniversity, TUniversityContext } from "../types/university";
 import UniversityService from "../services";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const UniversitiesContext = createContext<TUniversityContext | null>(
   null
@@ -15,6 +16,8 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [universities, setUniversities] = useState<IUniversity[]>([]);
 
+  const { showBoundary } = useErrorBoundary();
+
   const deleteUniversity = (name: string) => {
     setUniversities((prevUniversities) =>
       prevUniversities.filter((university) => university.name !== name)
@@ -24,8 +27,13 @@ export const UniversitiesProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const universities = await UniversityService.fetchUniversities();
-      setUniversities(universities);
+      try {
+        const universities = await UniversityService.fetchUniversities();
+        setUniversities(universities);
+      } catch (error) {
+        showBoundary(error);
+        console.error(error);
+      }
       setIsLoading(false);
     };
 
